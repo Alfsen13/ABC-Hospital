@@ -3,7 +3,7 @@
 $servername = "localhost";
 $username = "root";
 $pwd = "";
-$dbname = "databasekonsul";
+$dbname = "databasekonsultasi";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -30,7 +30,7 @@ if ($resultMaxKode->num_rows > 0) {
 }
 
 // Logika penyimpanan data
-$sql = "INSERT INTO pesan_jadwal (kode_jadwal, id_jadwal, waktu_tanggal) VALUES ('$kodeJadwal', '$idJadwal', '$waktuTanggal')";
+$sql = "INSERT INTO jadwal_konsultasi (kode_jadwal, id_jadwal, waktu_tanggal) VALUES ('$kodeJadwal', '$idJadwal', '$waktuTanggal')";
 
 if ($conn->query($sql) === TRUE) {
     // Jika data berhasil disimpan

@@ -53,47 +53,54 @@
   <body>
     <div class="table-container">
       <h2>Daftar Dokter</h2>
-      <table>
+      <table id="dokterTable">
         <thead>
           <tr>
             <th>ID Dokter</th>
-            <th>Nama</th>
-            <th>No Kontak</th>
+            <th>Nama Dokter</th>
+            <th>Nomor Kontak</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td>101</td>
-            <td>Dr. Ahmad</td>
-            <td>08123456789</td>
-          </tr>
-          <tr>
-            <td>102</td>
-            <td>Dr. Budi</td>
-            <td>08765432123</td>
-          </tr>
-          <tr>
-            <td>103</td>
-            <td>Dr. Cinta</td>
-            <td>08111223344</td>
-          </tr>
-          <tr>
-            <td>104</td>
-            <td>Dr. Dina</td>
-            <td>08555667788</td>
-          </tr>
-          <tr>
-            <td>105</td>
-            <td>Dr. Eka</td>
-            <td>08199887766</td>
-          </tr>
-          <tr>
-            <td>106</td>
-            <td>Dr. Fajar</td>
-            <td>08211223344</td>
-          </tr>
-        </tbody>
+        <tbody></tbody>
       </table>
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        // Menggunakan jQuery untuk memuat data dari PHP ke dalam tabel
+        $.ajax({
+          url: "get_dokter.php",
+          method: "GET",
+          dataType: "json",
+          success: function (data) {
+            if (data.length > 0) {
+              var tableBody = $("#dokterTable tbody");
+              $.each(data, function (index, row) {
+                var newRow =
+                  "<tr>" +
+                  "<td>" +
+                  row.id_dokter +
+                  "</td>" +
+                  "<td>" +
+                  row.namadokter +
+                  "</td>" +
+                  "<td>" +
+                  row.nokontakdokter +
+                  "</td>" +
+                  "</tr>";
+                tableBody.append(newRow);
+              });
+            } else {
+              $("#dokterTable tbody").html(
+                '<tr><td colspan="3">Tidak ada data dokter.</td></tr>'
+              );
+            }
+          },
+          error: function () {
+            console.error("Gagal memuat data dokter.");
+          },
+        });
+      });
+    </script>
   </body>
 </html>

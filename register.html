@@ -51,25 +51,46 @@
         background-color: #45a049;
       }
 
-      .show-login-form {
-        color: #008cba;
-        cursor: pointer;
-        text-decoration: underline;
-        margin-top: 20px;
-        display: block;
+      .form-dokter,
+      .form-pasien {
+        display: none;
       }
     </style>
   </head>
   <body>
     <div class="form-container">
       <h2>Registrasi</h2>
-      <form action="register.php" method="post">
-        <label for="role_register">Daftar Sebagai:</label>
-        <select name="role_register" id="role_register">
-          <option value="pasien">Pasien</option>
-          <option value="dokter">Dokter</option></select
-        ><br />
 
+      <!-- Dropdown untuk memilih jenis form -->
+      <label for="role_register">Daftar Sebagai:</label>
+      <select name="role_register" id="role_register">
+        <option value="dokter">Dokter</option>
+        <option value="pasien">Pasien</option></select
+      ><br />
+
+      <!-- Form Registrasi Dokter -->
+      <form action="register_dokter.php" method="post" class="form-dokter">
+        <label for="id_dokter">ID Dokter:</label>
+        <input type="text" id="id_dokter" name="id_dokter" /><br />
+
+        <label for="nama_dokter">Nama Dokter:</label>
+        <input type="text" id="nama_dokter" name="nama_dokter" /><br />
+
+        <label for="no_kontak_dokter">No Kontak Dokter:</label>
+        <input
+          type="text"
+          id="no_kontak_dokter"
+          name="no_kontak_dokter"
+        /><br />
+
+        <label for="pwddokter">Password Dokter:</label>
+        <input type="password" id="pwddokter" name="pwddokter" required /><br />
+
+        <input type="submit" value="Daftar sebagai Dokter" />
+      </form>
+
+      <!-- Form Registrasi Pasien -->
+      <form action="register_pasien.php" method="post" class="form-pasien">
         <label for="nik">NIK:</label>
         <input type="text" id="nik" name="nik" /><br />
 
@@ -85,13 +106,33 @@
         <label for="no_kontak">No Kontak:</label>
         <input type="text" id="no_kontak" name="no_kontak" /><br />
 
-        <label for="pwd">Password:</label>
+        <label for="pwd">Password Pasien:</label>
         <input type="password" id="pwd" name="pwd" required /><br />
 
-        <input type="submit" value="Daftar" />
+        <input type="submit" value="Daftar sebagai Pasien" />
       </form>
-
-      <a class="show-login-form" href="login.html">Login</a>
     </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        var formDokter = document.querySelector(".form-dokter");
+        var formPasien = document.querySelector(".form-pasien");
+
+        document
+          .getElementById("role_register")
+          .addEventListener("change", function () {
+            if (this.value === "dokter") {
+              formDokter.style.display = "block";
+              formPasien.style.display = "none";
+            } else if (this.value === "pasien") {
+              formPasien.style.display = "block";
+              formDokter.style.display = "none";
+            } else {
+              formDokter.style.display = "none";
+              formPasien.style.display = "none";
+            }
+          });
+      });
+    </script>
   </body>
 </html>
