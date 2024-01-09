@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registrasi</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+      }
+
+      .form-container {
+        max-width: 400px;
+        margin: 20px auto;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        box-sizing: border-box;
+      }
+
+      h2 {
+        color: #333;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        color: #333;
+      }
+
+      input,
+      select {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 12px;
+        box-sizing: border-box;
+      }
+
+      input[type="submit"] {
+        background-color: #4caf50;
+        color: white;
+        cursor: pointer;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #45a049;
+      }
+
+      .show-login-form {
+        color: #008cba;
+        cursor: pointer;
+        text-decoration: underline;
+        margin-top: 20px;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <h2>Registrasi</h2>
+      <form action="register.php" method="post">
+        <label for="role_register">Daftar Sebagai:</label>
+        <select name="role_register" id="role_register">
+          <option value="pasien">Pasien</option>
+          <option value="dokter">Dokter</option></select
+        ><br />
+
+        <label for="nik">NIK:</label>
+        <input type="text" id="nik" name="nik" /><br />
+
+        <label for="nama">Nama:</label>
+        <input type="text" id="nama" name="nama" /><br />
+
+        <label for="usia">Usia:</label>
+        <input type="text" id="usia" name="usia" /><br />
+
+        <label for="alamat">Alamat:</label>
+        <input type="text" id="alamat" name="alamat" /><br />
+
+        <label for="no_kontak">No Kontak:</label>
+        <input type="text" id="no_kontak" name="no_kontak" /><br />
+
+        <label for="pwd">Password:</label>
+        <input type="password" id="pwd" name="pwd" required /><br />
+
+        <input type="submit" value="Daftar" />
+      </form>
+
+      <a class="show-login-form" href="login.html">Login</a>
+    </div>
+  </body>
+</html>

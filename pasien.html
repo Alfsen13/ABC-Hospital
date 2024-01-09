@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pasien Dashboard</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+      }
+
+      .dashboard-container {
+        max-width: 600px;
+        margin: 20px auto;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        box-sizing: border-box;
+      }
+
+      h2 {
+        color: #333;
+      }
+
+      .menu-list {
+        list-style: none;
+        padding: 0;
+        margin: 20px 0;
+      }
+
+      .menu-list li {
+        margin-bottom: 10px;
+      }
+
+      .menu-link {
+        text-decoration: none;
+        background-color: #008cba;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 5px;
+        display: inline-block;
+      }
+
+      .menu-link:hover {
+        background-color: #006080;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="dashboard-container">
+      <h2>Selamat datang, Pasien!</h2>
+      <ul class="menu-list">
+        <li>
+          <a class="menu-link" href="/pasien/lihat_jadwal.html"
+            >Lihat Jadwal Dokter</a
+          >
+        </li>
+        <li>
+          <a class="menu-link" href="/pasien/daftar_dokter.html"
+            >Lihat Daftar Dokter</a
+          >
+        </li>
+        <li>
+          <a class="menu-link" href="/pasien/pesan_jadwal.html">Pesan Jadwal</a>
+        </li>
+      </ul>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pesan Jadwal</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+      }
+
+      .form-container {
+        max-width: 400px;
+        margin: 20px auto;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        box-sizing: border-box;
+      }
+
+      h2 {
+        color: #333;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        color: #333;
+      }
+
+      input,
+      select {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 12px;
+        box-sizing: border-box;
+      }
+
+      input[type="submit"] {
+        background-color: #4caf50;
+        color: white;
+        cursor: pointer;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #45a049;
+      }
+
+      .back-link {
+        color: #008cba;
+        cursor: pointer;
+        text-decoration: underline;
+        margin-top: 10px;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <h2>Pesan Jadwal</h2>
+      <form
+        id="pesanJadwalForm"
+        action="simpan_data.php"
+        method="post"
+        onsubmit="return handleSimpanData()"
+      >
+        <label for="idJadwal">Pilih ID Jadwal:</label>
+        <select name="idJadwal" id="idJadwal" required>
+          <!-- Isi combo box dengan opsi ID Jadwal dari data jadwal dokter -->
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option></select
+        ><br />
+
+        <label for="waktuTanggal">Waktu Tanggal:</label>
+        <input
+          type="datetime-local"
+          id="waktuTanggal"
+          name="waktuTanggal"
+          required
+        /><br />
+
+        <input type="submit" value="Simpan Data" />
+      </form>
+
+      <a class="back-link" href="/pasien.html">Kembali</a>
+    </div>
+
+    <script>
+      function handleSimpanData() {
+        // Implementasi logika penyimpanan data ke database di sini
+
+        // Contoh: Simpan data menggunakan AJAX atau formulir biasa
+        alert("Data berhasil disimpan!");
+
+        // Kembalikan false untuk mencegah formulir untuk disubmit (pengalihan dilakukan secara manual)
+        return false;
+      }
+    </script>
+  </body>
+</html>

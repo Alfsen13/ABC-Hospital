@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+      }
+
+      .form-container {
+        max-width: 400px;
+        margin: 20px auto;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        box-sizing: border-box;
+      }
+
+      h2 {
+        color: #333;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+        color: #333;
+      }
+
+      input,
+      select {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 12px;
+        box-sizing: border-box;
+      }
+
+      input[type="submit"] {
+        background-color: #4caf50;
+        color: white;
+        cursor: pointer;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #45a049;
+      }
+
+      .show-registration-form {
+        color: #008cba;
+        cursor: pointer;
+        text-decoration: underline;
+        margin-top: 20px;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <h2>Login</h2>
+      <form
+        id="loginForm"
+        action="login.php"
+        method="post"
+        onsubmit="return handleLogin()"
+      >
+        <label for="role">Login Sebagai:</label>
+        <select name="role" id="role">
+          <option value="pasien">Pasien</option>
+          <option value="dokter">Dokter</option></select
+        ><br />
+
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required /><br />
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required /><br />
+
+        <input type="submit" value="Login" />
+      </form>
+
+      <a class="show-registration-form" href="register.html">Daftar</a>
+    </div>
+
+    <script>
+      function handleLogin() {
+        var role = document.getElementById("role").value;
+        var username = document.getElementById("username").value;
+
+        // Logika login Anda disini
+
+        // Contoh: Redirect ke pasien.html untuk peran Pasien
+        if (role === "pasien") {
+          window.location.href = "pasien.html";
+        }
+        // Contoh: Redirect ke dokter.html untuk peran Dokter
+        else if (role === "dokter") {
+          window.location.href = "dokter.html";
+        }
+
+        // Mencegah formulir untuk disubmit (pengalihan dilakukan secara manual)
+        return false;
+      }
+    </script>
+  </body>
+</html>
