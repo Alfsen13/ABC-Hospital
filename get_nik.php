@@ -11,6 +11,7 @@ if ($conn->connect_error) {
     die("Koneksi gagal: " . $conn->connect_error);
 }
 
+// Simpan nik ke dalam sesi untuk digunakan
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -18,16 +19,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
     $password = $_POST["password"];
 
-    // Handle login logic here
-
     // Contoh untuk pasien
     if ($role == "pasien") {
         $sql = "SELECT * FROM pasien WHERE nik='$username' AND pwdpasien='$password'";
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
-            // Pasien ditemukan, inisialisasi sesi dan arahkan ke halaman pasien.html
+            // Pasien ditemukan, simpan nik ke dalam sesi
             $_SESSION["nik"] = $username;
+            // Arahkan ke halaman pasien.html
             header("Location: pasien.html");
             exit();
         } else {
@@ -41,8 +41,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $result = $conn->query($sql);
 
         if ($result->num_rows > 0) {
-            // Dokter ditemukan, inisialisasi sesi dan arahkan ke halaman dokter.html
-            $_SESSION["nik"] = $username;
+            // Dokter ditemukan, simpan id_dokter ke dalam sesi
+            $_SESSION["id_dokter"] = $username;
+            // Arahkan ke halaman dokter.html
             header("Location: dokter.html");
             exit();
         } else {
@@ -52,3 +53,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 
 $conn->close();
+?>

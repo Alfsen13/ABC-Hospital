@@ -48,26 +48,11 @@
       tr:nth-child(even) {
         background-color: #f9f9f9;
       }
-
-      input[type="text"] {
-        width: 100%;
-        padding: 8px;
-        box-sizing: border-box;
-        margin-bottom: 10px;
-      }
     </style>
   </head>
   <body>
     <div class="table-container">
       <h2>Data Pesan</h2>
-
-      <label for="searchInput">Cari Pesan berdasarkan NIK:</label>
-      <input
-        type="text"
-        id="searchInput"
-        onkeyup="searchData()"
-        placeholder="Masukkan NIK..."
-      />
 
       <table id="pesananTable">
         <thead>
@@ -83,27 +68,6 @@
     </div>
 
     <script>
-      // Fungsi untuk melakukan filter pada tabel berdasarkan NIK
-      function searchData() {
-        var input, filter, table, tr, td, i, txtValue;
-        input = document.getElementById("searchInput");
-        filter = input.value.toUpperCase();
-        table = document.getElementById("pesananTable");
-        tr = table.getElementsByTagName("tr");
-
-        for (i = 0; i < tr.length; i++) {
-          td = tr[i].getElementsByTagName("td")[3]; // Kolom NIK
-          if (td) {
-            txtValue = td.textContent || td.innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-              tr[i].style.display = "";
-            } else {
-              tr[i].style.display = "none";
-            }
-          }
-        }
-      }
-
       // Memuat data pesan saat halaman pertama kali dimuat
       window.onload = function () {
         loadData();
@@ -137,7 +101,7 @@
             pesanan.id_jadwal +
             "</td>" +
             "<td>" +
-            pesanan.hari_tanggal +
+            pesanan.tanggal_waktu +
             "</td>" +
             "<td>" +
             pesanan.nik +

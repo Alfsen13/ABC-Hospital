@@ -50,23 +50,27 @@
       input[type="submit"]:hover {
         background-color: #45a049;
       }
+
+      .show-registration-form {
+        color: #008cba;
+        cursor: pointer;
+        text-decoration: underline;
+        margin-top: 20px;
+        display: block;
+      }
     </style>
   </head>
   <body>
     <div class="form-container">
-      <h2>Edit Data</h2>
-      <form action="process_pesan_jadwal.php" method="post">
-        <label for="hari_tanggal">Hari Tanggal:</label>
-        <input
-          type="datetime-local"
-          id="hari_tanggal"
-          name="hari_tanggal"
-          required
-        /><br />
-
-        <label for="id_jadwal">ID Jadwal Dokter:</label>
-        <select name="id_jadwal" id="id_jadwal" required>
-          <!-- Pilihan ID Jadwal Dokter Statik (1-7) -->
+      <h2>Pesan Jadwal</h2>
+      <form
+        id="pesanJadwalForm"
+        action="process_pesan_jadwal.php"
+        method="post"
+        onsubmit="return handlePesanJadwal()"
+      >
+        <label for="id_jadwal">ID Jadwal:</label>
+        <select id="id_jadwal" name="id_jadwal" required>
           <option value="1">1</option>
           <option value="2">2</option>
           <option value="3">3</option>
@@ -76,13 +80,37 @@
           <option value="7">7</option></select
         ><br />
 
-        <label for="nik">NIK Pasien:</label>
-        <input type="text" id="nik" name="nik" required /><br />
-
-        <!-- Kode jadwal akan diisi secara otomatis di server-side -->
+        <label for="hari_tanggal">Hari dan Tanggal:</label>
+        <input
+          type="datetime-local"
+          id="hari_tanggal"
+          name="hari_tanggal"
+          required
+        /><br />
 
         <input type="submit" value="Pesan Jadwal" />
       </form>
     </div>
+    <script>
+      function handlePesanJadwal() {
+        // Logika validasi formulir jika diperlukan
+
+        // Contoh: Mengambil nilai input
+        var idJadwal = document.getElementById("id_jadwal").value;
+        var hariTanggal = document.getElementById("hari_tanggal").value;
+
+        // Contoh: Mengecek apakah nilai input sesuai dengan kebutuhan
+        if (idJadwal.trim() === "" || hariTanggal.trim() === "") {
+          alert("Harap isi semua field.");
+          return false;
+        }
+
+        // Contoh: Kirim formulir secara manual (jika tidak ada validasi tambahan)
+        document.getElementById("pesanJadwalForm").submit();
+
+        // Mencegah formulir untuk disubmit (pengiriman dilakukan secara manual)
+        return false;
+      }
+    </script>
   </body>
 </html>

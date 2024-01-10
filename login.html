@@ -89,22 +89,8 @@
 
     <script>
       function handleLogin() {
-        var role = document.getElementById("role").value;
-        var username = document.getElementById("username").value;
-
-        // Logika login Anda disini
-
-        // Contoh: Redirect ke pasien.html untuk peran Pasien
-        if (role === "pasien") {
-          window.location.href = "pasien.html";
-        }
-        // Contoh: Redirect ke dokter.html untuk peran Dokter
-        else if (role === "dokter") {
-          window.location.href = "dokter.html";
-        }
-
         // Mencegah formulir untuk disubmit (pengalihan dilakukan secara manual)
-        return false;
+        return true;
       }
     </script>
   </body>

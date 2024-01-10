@@ -20,7 +20,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $stmt->bind_param("ssss", $id_dokter, $nama_dokter, $no_kontak_dokter, $pwddokter);
 
     if ($stmt->execute()) {
-        header("Location: login.html");
+        session_start();
+        $_SESSION["id_dokter"] = $id_dokter;
+        header("Location: home.html");
         exit();
     } else {
         echo "Error: " . $stmt->error;

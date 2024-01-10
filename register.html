@@ -71,16 +71,17 @@
       <!-- Form Registrasi Dokter -->
       <form action="register_dokter.php" method="post" class="form-dokter">
         <label for="id_dokter">ID Dokter:</label>
-        <input type="text" id="id_dokter" name="id_dokter" /><br />
+        <input type="text" id="id_dokter" name="id_dokter" required /><br />
 
         <label for="nama_dokter">Nama Dokter:</label>
-        <input type="text" id="nama_dokter" name="nama_dokter" /><br />
+        <input type="text" id="nama_dokter" name="nama_dokter" required /><br />
 
         <label for="no_kontak_dokter">No Kontak Dokter:</label>
         <input
           type="text"
           id="no_kontak_dokter"
           name="no_kontak_dokter"
+          required
         /><br />
 
         <label for="pwddokter">Password Dokter:</label>
@@ -92,19 +93,19 @@
       <!-- Form Registrasi Pasien -->
       <form action="register_pasien.php" method="post" class="form-pasien">
         <label for="nik">NIK:</label>
-        <input type="text" id="nik" name="nik" /><br />
+        <input type="text" id="nik" name="nik" required /><br />
 
         <label for="nama">Nama:</label>
-        <input type="text" id="nama" name="nama" /><br />
+        <input type="text" id="nama" name="nama" required /><br />
 
         <label for="usia">Usia:</label>
-        <input type="text" id="usia" name="usia" /><br />
+        <input type="text" id="usia" name="usia" required /><br />
 
         <label for="alamat">Alamat:</label>
-        <input type="text" id="alamat" name="alamat" /><br />
+        <input type="text" id="alamat" name="alamat" required /><br />
 
         <label for="no_kontak">No Kontak:</label>
-        <input type="text" id="no_kontak" name="no_kontak" /><br />
+        <input type="text" id="no_kontak" name="no_kontak" required /><br />
 
         <label for="pwd">Password Pasien:</label>
         <input type="password" id="pwd" name="pwd" required /><br />
